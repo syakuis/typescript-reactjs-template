@@ -2,9 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist/",
     "allowJs": true,
-    "isolatedModules": true,
+    // "isolatedModules": false,
     "module": "commonjs",
-    "noEmit": true,
+    // "noEmit": false,
     "sourceMap": true,
     "target": "es6",
     "strict": true,

@@ -13,7 +13,6 @@ module.exports = (env, args, options, config = {}) =>
     common(env, args, options),
     {
       mode: 'production',
-      entry: './src/index',
       optimization: {
         minimize: true,
         minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],

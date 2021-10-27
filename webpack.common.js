@@ -10,6 +10,7 @@ module.exports = (env, args, options) => {
   const { publicPath, envPath, dirbase } = options;
 
   return {
+    entry: './src/index.ts',
     output: {
       filename: '[name].js?hash=[hash]',
       path: path.join(dirbase, 'dist'),
@@ -17,6 +18,7 @@ module.exports = (env, args, options) => {
     },
 
     plugins: [
+      new ESLintPlugin(),
       new Dotenv({
         path: envPath,
       }),
@@ -26,10 +28,6 @@ module.exports = (env, args, options) => {
             delete: [path.join(dirbase, 'dist')],
             mkdir: [path.join(dirbase, 'dist')],
             copy: [
-              {
-                source: path.join(dirbase, 'src/site.webmanifest'),
-                destination: path.join(dirbase, 'dist/site.webmanifest'),
-              },
               {
                 source: path.join(dirbase, 'src/images'),
                 destination: path.join(dirbase, 'dist/images'),
@@ -46,7 +44,6 @@ module.exports = (env, args, options) => {
         filename: 'index.html',
         template: path.join(__dirname, '/src/index.html'),
       }),
-      new ESLintPlugin(),
     ],
 
     module: {
@@ -56,9 +53,6 @@ module.exports = (env, args, options) => {
           include: path.join(dirbase, 'src'),
           use: {
             loader: 'ts-loader',
-            options: {
-              cacheDirectory: true,
-            },
           },
         },
         {

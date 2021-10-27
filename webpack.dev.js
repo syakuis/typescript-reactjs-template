@@ -13,7 +13,6 @@ module.exports = (env, args, options, config = {}) =>
       mode: 'development',
       devtool: 'inline-source-map',
       // devtool: 'cheap-module-source-map',
-      entry: './src/index',
       output: {
         pathinfo: true,
       },
