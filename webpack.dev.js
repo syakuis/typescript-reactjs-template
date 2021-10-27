@@ -2,6 +2,7 @@
  * @date 2017-02-03 11:46:07
  * @author Seok Kyun. Choi. 최석균 (Syaku)
  */
+const path = require('path');
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
@@ -35,7 +36,10 @@ module.exports = (env, args, options, config = {}) =>
       devServer: {
         port: 9000,
         historyApiFallback: true,
-        contentBase: 'dist',
+        // contentBase: 'dist',
+        static: {
+          directory: path.join(__dirname, 'dist'),
+        },
       },
     },
     config,

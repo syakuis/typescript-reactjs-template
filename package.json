@@ -4,11 +4,11 @@
   "description": "TypeScript Templcate",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "webpack --progress --mode production --env mode=prod",
-    "dev": "webpack --mode development --env mode=dev",
-    "stats": "webpack --progress --profile --json > ./temp/stats.json --mode production --env mode=stats",
+    "build": "webpack --progress --mode production",
+    "dev": "webpack --mode development",
+    "stats": "webpack --progress --profile --json > ./temp/stats.json --mode production --env analyzed=true",
     "db": "json-server --watch ./json-server/data.json --routes ./json-server/routes.json --port 8080",
-    "start": "webpack serve --progress --mode development --env mode=dev"
+    "start": "webpack serve --progress --mode development"
   },
   "author": "Syaku <syaku@naver.com> (https://syaku.tistory.com/)",
   "homepage": "https://github.com/syakuis/typescript-template",
