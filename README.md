@@ -6,10 +6,17 @@
 
 ## 변경사항
 
-### 2021. 10. 27
+## 2021. 10. 27
 
--
-- node 14.17.0 이상 지원
+- Node 14.17.0 이상 지원
+- webpack
+  - eslint-loder → eslint-webpack-plugin 변경
+  - devServer
+    - contentBase → static 변경
+      - 참고 - [https://webpack.kr/configuration/dev-server/#root](https://webpack.kr/configuration/dev-server/#root)
+- testing-library
+  - eslint 설정에서 plugin:testing-library/recommended → plugin:testing-library/dom 변경
+    - 참고 - [https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/migration-guides/v4.md](https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/migration-guides/v4.md)
 
 ## 구성
 
