@@ -18,10 +18,10 @@
 
 ## 참고사항
 
-## 설치
+## 필수 사항
 
-- node v14
-- npm v6
+- node ^14.17.0
+- npm ^6.14.15
 
 ### NODE 설치
 
@@ -30,15 +30,13 @@ $ sudo brew install node
 
 $ sudo npm install -g n
 
-$ sudo n 14.8.0 혹은 sudo n latest
+$ sudo n 14.17.0 혹은 sudo n latest
 ```
 
 ### NPM 설치
 
 ```
 $ sudo npm install -g npm
-
-$ npm install -g npm-check-updates
 ```
 
 ### 패키지 설치
@@ -50,6 +48,8 @@ $ npm install
 ### 패키지 업데이트
 
 ```
+$ npm install -g npm-check-updates
+
 $ ncu -u
 
 $ npm install
