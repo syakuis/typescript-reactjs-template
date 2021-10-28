@@ -3,8 +3,6 @@ const dev = require('./webpack.dev.js');
 const prod = require('./webpack.prod.js');
 
 module.exports = (env, args) => {
-  console.log(env);
-  console.log(args);
   const { analyzed } = env;
   const { mode, publicPath: aPublicPath, __dirbase } = args;
   const dirbase = __dirbase || __dirname;
