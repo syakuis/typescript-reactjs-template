@@ -11,17 +11,22 @@ module.exports = {
     sourceType: 'module',
     ecmaFeatures: {
       legacyDecotators: true,
+      jsx: true,
     },
     createDefaultProgram: true,
   },
   settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect',
+    },
     'import/parser': '@babel/eslint-parser',
     'import/resolver': {
       node: {
         extensions: ['.ts', '.tsx'],
       },
       webpack: {
-        config: './webpack.config.dev.js',
+        config: './webpack.dev.js',
       },
     },
   },
@@ -30,6 +35,36 @@ module.exports = {
     'import/no-unresolved': ['error', { commonjs: true, amd: true }],
     'import/extensions': ['error', 'never', { packages: 'always' }],
     'import/no-extraneous-dependencies': ['error'],
+    'react/prop-types': ['error'],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        // components: ['Label'],
+        required: {
+          some: ['nesting', 'id'],
+        },
+        allowChildren: true,
+      },
+    ],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/click-events-have-key-events': ['off'],
+    'jsx-a11y/mouse-events-have-key-events': ['off'],
+    'jsx-a11y/anchor-is-valid': [
+      'error',
+      {
+        components: ['Link'],
+        specialLink: ['to', 'hrefLeft', 'hrefRight'],
+        aspects: ['invalidHref'],
+      },
+    ],
+    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
   },
   overrides: [
     {
@@ -40,6 +75,8 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
         'plugin:jest/recommended',
         'plugin:testing-library/dom',
         'plugin:prettier/recommended',
@@ -47,6 +84,9 @@ module.exports = {
       plugins: [
         '@typescript-eslint',
         'import',
+        'react',
+        'react-hooks',
+        'jsx-a11y',
         'jest',
         'testing-library',
         'prettier',
@@ -54,6 +94,11 @@ module.exports = {
       // https://stackoverflow.com/questions/58510287/parseroptions-project-has-been-set-for-typescript-eslint-parser
       parserOptions: {
         project: './tsconfig.json',
+      },
+      rules: {
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
+        'react/prop-types': 'off',
       },
     },
   ],

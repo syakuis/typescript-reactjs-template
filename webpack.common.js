@@ -10,7 +10,7 @@ module.exports = (env, args, options) => {
   const { publicPath, envPath, dirbase } = options;
 
   return {
-    entry: './src/index.ts',
+    entry: './src/index',
     output: {
       filename: '[name].js?hash=[hash]',
       path: path.join(dirbase, 'dist'),
@@ -49,7 +49,7 @@ module.exports = (env, args, options) => {
     module: {
       rules: [
         {
-          test: /\.ts$/,
+          test: /\.(ts)x?$/,
           include: path.join(dirbase, 'src'),
           use: {
             loader: 'ts-loader',
@@ -102,7 +102,7 @@ module.exports = (env, args, options) => {
     },
 
     resolve: {
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.json', '.js', '.ts', '.tsx'],
       alias: {
         '@': path.resolve(dirbase, 'src'),
       },
